@@ -31,11 +31,11 @@ int promptShell(void)
 		stat = built_ins(args);
 	}
 
-        if (stat == _NORMAL && args[0][0] != '.')
-	        pPath = getPathArgs(args[0]);
+	if (stat == _NORMAL && args[0][0] != '.')
+		pPath = getPathArgs(args[0]);
 
 	if (stat == _NORMAL)
-                execute(pPath ? pPath : args[0], args);
+		execute(pPath ? pPath : args[0], args);
 
 	free(args);
 	free(pPath);

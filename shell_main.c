@@ -11,8 +11,7 @@ int main(void)
 {
 	int stat;
 
-	do
-	{
+	do {
 		stat = promptShell();
 	} while (stat != _SHELL_END);
 
