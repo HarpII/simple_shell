@@ -18,3 +18,38 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
+
+/**
+ * getToken - tokenizes the string
+ *
+ * @buf: buffer where string is held
+ * @pattern: the demiliter
+ *
+ * Return: tokenized string of pointers
+ */
+char **getToken(char **buf, char *pattern)
+{
+	int i = 1;
+	char *tok;
+	char **args;
+	unsigned int tokCount;
+
+	tokCount = countToks(*buf, pattern);
+
+	tok = strtok(*buf, pattern);
+	if (tok == NULL)
+		perror("no command passed: "), exit(EXIT_FAILURE);
+	args = malloc(sizeof(char *) * (tokCount + 1));
+	if (args == NULL)
+		perror("Error in Allocation"), exit(EXIT_FAILURE);
+	args[0] = tok;
+
+	while (tok != NULL)
+	{
+		tok = strtok(NULL, pattern);
+		if (tok != NULL)
+			args[i] = tok, i++;
+	}
+	args[i] = NULL;
+	return (args);
+}
