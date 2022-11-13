@@ -33,8 +33,8 @@ char *getPathArgs(char *prog)
 
 	temp = getKeyValue("PATH");
 	temp_envi = _stralloc(1, temp);
-	temp_arg = getToken(&temp_env, ":");
-	temp = get_x_args(temp_args, prog);
+	temp_arg = getToken(&temp_envi, ":");
+	temp = get_x_args(temp_arg, prog);
 
 	free(temp_envi);
 	free(temp_arg);
