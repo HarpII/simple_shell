@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * built_ns - array of structs to find matching command string
+ * built_ins - array of structs to find matching command string
  * and return corresponding function
  * @args: contains value to match to first element of struct
  *
@@ -41,6 +41,7 @@ int _env(__attribute__ ((unused)) char **args)
 	}
 	return (_SKIP);
 }
+
 /**
  * _bin_exit - function to exit the shell
  *
